@@ -38,5 +38,5 @@ def choose(request):
 	u.show()
     except (KeyError):
         return render(request, 'singlecolorpicker/choose.html')
-    return render(request, 'singlecolorpicker/choose.html')
+    return render('singlecolorpicker/choose.html')
     
