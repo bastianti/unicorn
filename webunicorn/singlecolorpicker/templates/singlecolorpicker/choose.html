@@ -13,7 +13,7 @@
 <h1>Choose your color</h1>
 
 
-<form action="/singlecolorpicker/choose" method="GET">
+<form action="/singlecolorpicker/choosename" method="GET">
 
 {% csrf_token %}
 
@@ -23,7 +23,7 @@
     <input type="radio" name="color" value="white" onClick="this.form.submit()">White<br>
 
     Change Brightness
-    <input id=brightness type="range" name="brightness" min=0 max=100 steps=1 onchange="printValue('brightness', 'brightnessValue'); this.form.submit()"/>
+    <input id=brightness type="range" name="brightness" min=-1 max=100 steps=1 onchange="printValue('brightness', 'brightnessValue'); this.form.submit()"/>
     <input id="brightnessValue" type="text" size="2">
 </form>
 
