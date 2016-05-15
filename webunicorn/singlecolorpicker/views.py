@@ -53,7 +53,10 @@ def changeRGB(request):
     # Save old Value
     brightnessobj = Brightness.objects.filter(pk=2)[0]
     brightness = brightnessobj.brightness 
-    
+    red   = 0
+    green = 0
+    blue  = 0
+ 
     
     try:
         try:
@@ -75,7 +78,7 @@ def changeRGB(request):
     
         for x in xrange(8):
 	    for y in xrange(8):
-               u.set_pixel(x, y, red, green, blue_)
+               u.set_pixel(x, y, red, green, blue)
 	u.show()
     except(KeyError):
         template = loader.get_template('singlecolorpicker/changeRGB.html')
