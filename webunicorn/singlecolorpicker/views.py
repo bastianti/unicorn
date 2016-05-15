@@ -14,9 +14,9 @@ def choose(request):
     g = 0
     b = 0
     try:
-        color = request.GET['color']
 	brightness = float(request.GET['brightness'])/100
         u.brightness(brightness)      
+        color = request.GET['color']
 	if color   == 'red':
 	    r = 255
         elif color == 'blue':
