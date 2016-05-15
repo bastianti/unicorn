@@ -15,6 +15,7 @@ def choose(request):
     b = 0
     try:
         color = request.GET['color']
+        color = request.GET['Brightness']
         u.brightness=1
 	if color   == 'red':
 	    r = 255
@@ -26,6 +27,11 @@ def choose(request):
 	    r = 255
 	    g = 255
 	    b = 255
+	elif color == 'off':
+	    r = 0
+	    g = 0
+	    b = 0
+	
 	for x in xrange(8):
 	    for y in xrange(8):
 	        u.set_pixel(x, y, r, g, b)
