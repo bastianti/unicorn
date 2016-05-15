@@ -1,0 +1,25 @@
+<script>
+    function printValue(sliderID, textbox) {
+        var x = document.getElementById(textbox);
+        var y = document.getElementById(sliderID);
+        x.value = y.value;
+    }
+    window.onload = function() {
+        printValue('brightness', 'brightnessValue');
+                    }
+</script>
+
+
+<h1>Pick your Color</h1>
+<form action=changergb method=POST>
+    {% csrf_token %}
+    {% for color in color_list %}
+        {{color.rgb_value}}
+        <input type="radio" name="color" value="{{color.human_readable_name}}" onclick="this.form.submit()">{{color.human_readable_name}}<br>
+    {% endfor %}
+
+    Change Brightness
+    <input id=brightness type="range" name="brightness" min=0 max=100 steps=1 value={{brightness}} onclick="printValue('brightness', 'brightnessValue'); this.form.submit()"/>
+    <input id="brightnessValue" type="text" size="2">
+
+</form>
