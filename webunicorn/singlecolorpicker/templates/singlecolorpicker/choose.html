@@ -9,6 +9,9 @@
     <input type="radio" name="color" value="white">White<br>
     <br>
     <br>
-    <input type="range" name="brightness" min=0 max=100 steps=1>
-    <input type="submit" value="Change Color">
+    Change Brightness
+    <input id=brightness type="range" name="brightness" min=0 max=100 steps=1 onchange="printvalue('brightness', 'brightnessValue')"/>
+    <input id="brightnessValue" type="text" size="2">
+    <br>
+    <input type="submit" value="Send to LED Panel">
 </form>
