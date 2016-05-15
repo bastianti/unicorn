@@ -13,6 +13,7 @@ def choose(request):
     r = 0
     g = 0
     b = 0
+
     try:
 	brightness = float(request.GET['brightness'])/100
         u.brightness(brightness)      
@@ -37,6 +38,7 @@ def choose(request):
 	        u.set_pixel(x, y, r, g, b)
 	u.show()
     except (KeyError):
+	u.show()
         return render(request, 'singlecolorpicker/choose.html')
     return render(request, 'singlecolorpicker/choose.html')
     
