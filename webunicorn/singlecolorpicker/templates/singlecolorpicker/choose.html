@@ -1,4 +1,15 @@
+<script>
+    function printValue(sliderID, textbox) {
+        var x = document.getElementById(textbox);
+	var y = document.getElementById(sliderID);
+	x.value = y.value;
+    }
+
+
+
 <h1>Choose your color</h1>
+
+
 <form action="/singlecolorpicker/choose" method="GET">
 
 {% csrf_token %}
