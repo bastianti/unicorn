@@ -26,7 +26,7 @@ def choosename(request):
             r = 0
 	elif color == 'green':
 	    g = 255
-            b = 0
+            r = 0
             b = 0
 	elif color == 'white':
 	    r = 255
@@ -67,6 +67,7 @@ def changeRGB(request):
             print "Red: {0}".format(colorobj.red_value)
             print "Green: {0}".format(colorobj.green_value)
             print "Blue: {0}".format(colorobj.blue_value)
+            print "Brightness {0}".format(brightness)
         except:
             pass # This may happen
 
