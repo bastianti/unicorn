@@ -72,7 +72,7 @@ def changeRGB(request):
     
         for x in xrange(8):
 	    for y in xrange(8):
-               u.set_pixel(x, y, r, g, b)
+               u.set_pixel(x, y, red_value, green_value, blue_value)
 	u.show()
     except(KeyError):
         template = loader.get_template('singlecolorpicker/changeRGB.html')
