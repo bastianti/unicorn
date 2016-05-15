@@ -58,6 +58,9 @@ def changeRGB(request):
     try:
         try:
             colorobj = RGBColor.objects.filter(human_readable_name=request.POST['color'])[0]
+            red   = colorobj.red_value
+            green = colorobj.green_value
+            blue  = colorobj.blue_value
             print "Red: {0}".format(colorobj.red_value)
             print "Green: {0}".format(colorobj.green_value)
             print "Blue: {0}".format(colorobj.blue_value)
@@ -72,7 +75,7 @@ def changeRGB(request):
     
         for x in xrange(8):
 	    for y in xrange(8):
-               u.set_pixel(x, y, red_value, green_value, blue_value)
+               u.set_pixel(x, y, red, green, blue_)
 	u.show()
     except(KeyError):
         template = loader.get_template('singlecolorpicker/changeRGB.html')
