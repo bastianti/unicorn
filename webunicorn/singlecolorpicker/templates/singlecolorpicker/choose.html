@@ -21,9 +21,7 @@
     <input type="radio" name="color" value="green" onClick="this.form.submit()">Green<br>
     <input type="radio" name="color" value="blue"  onClick="this.form.submit()">Blue<br>
     <input type="radio" name="color" value="white" onClick="this.form.submit()">White<br>
-</form>
 
-<form action="/singlecolorpicker/choose" method="GET">
     Change Brightness
     <input id=brightness type="range" name="brightness" min=0 max=100 steps=1 onchange="printValue('brightness', 'brightnessValue'); this.form.submit()"/>
     <input id="brightnessValue" type="text" size="2">
