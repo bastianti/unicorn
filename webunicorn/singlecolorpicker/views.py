@@ -64,7 +64,7 @@ def changeRGB(request):
         except:
             pass # This may happen
 
-        brightnessobj.brightness = float(request.POST['brightness'])
+        brightnessobj.brightness = float(request.POST['brightness'])/100
         brightnessobj.save()
         brightness = brightnessobj.brightness 
 
