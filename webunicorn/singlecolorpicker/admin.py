@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import RGBColor, Brightness
+
+admin.site.register(RGBColor)
+admin.site.register(Brightness)
