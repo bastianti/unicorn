@@ -38,5 +38,5 @@ def choose(request):
 	u.show()
     except (KeyError):
         return render(request, 'singlecolorpicker/choose.html')
-    return HttpResponse("Your choice was {0}".format(color))
+    return render(request, 'singlecolorpicker/choose.html')
     
