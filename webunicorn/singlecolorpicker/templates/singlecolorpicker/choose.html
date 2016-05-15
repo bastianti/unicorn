@@ -1,0 +1,12 @@
+<h1>Choose your color</h1>
+<form action="/singlecolorpicker/choose" method="GET">
+
+{% csrf_token %}
+
+    <input type="radio" name="color" value="red">Red<br>
+    <input type="radio" name="color" value="green">Green<br>
+    <input type="radio" name="color" value="blue">Blue<br>
+    <input type="radio" name="color" value="white">White<br>
+    
+    <input type="submit" value="Change Color">
+</form>
