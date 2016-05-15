@@ -15,8 +15,8 @@ def choose(request):
     b = 0
     try:
         color = request.GET['color']
-        color = request.GET['Brightness']
-        u.brightness=1
+       
+        u.brightness=request.GET['brightness']/100
 	if color   == 'red':
 	    r = 255
         elif color == 'blue':
