@@ -89,13 +89,13 @@ def changeRGB(request):
     except(KeyError):
         template = loader.get_template('singlecolorpicker/changeRGB.html')
         context = {
-            'color_list':color_list,
+            'color_list':color_list.order_by('human_readable_name'),
             'brightness':brightness
         }
         return HttpResponse(template.render(context, request))
     template = loader.get_template('singlecolorpicker/changeRGB.html')
     context = {
-        'color_list':color_list,
+        'color_list':color_list.order_by('human_readable_name'),
         'brightness':brightness
     }
     return HttpResponse(template.render(context, request))
