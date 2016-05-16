@@ -72,7 +72,7 @@ def changeRGB(request):
         except:
             pass # This may happen
 
-        brightnessobj.brightness = request.POST['brightness'])
+        brightnessobj.brightness = request.POST['brightness']
         brightnessobj.save()
         brightness = brightnessobj.brightness 
 
