@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from .models import RGBColor, Brightness
+from .models import RGBColor, Brightness, LastColorValue
 
 #Import for unicorn Hat
 import unicornhat as u
@@ -49,21 +49,22 @@ def choosename(request):
 
 def changeRGB(request):
     color_list = RGBColor.objects.all()
-    print color_list
-    # Save old Value
-    brightnessobj = Brightness.objects.filter(pk=2)[0]
+
+    # Save old Values
+    brightnessobj = Brightness.objects.filter(pk=1)[0]
     brightness = brightnessobj.brightness 
-    red   = 0
-    green = 0
-    blue  = 0
- 
-    
+    lastcolorvalueobj = LastColorValue.objects.filter(pk=1)[0]
+    red   = lastcolorvalueobj.red_value 
+    green = lastcolorvalueobj.green_value 
+    red   = lastcolorvalueobj.blue_value 
+
     try:
         try:
             colorobj = RGBColor.objects.filter(human_readable_name=request.POST['color'])[0]
             red   = colorobj.red_value
             green = colorobj.green_value
             blue  = colorobj.blue_value
+            colorobj.save()
             print "Red: {0}".format(colorobj.red_value)
             print "Green: {0}".format(colorobj.green_value)
             print "Blue: {0}".format(colorobj.blue_value)
@@ -71,11 +72,11 @@ def changeRGB(request):
         except:
             pass # This may happen
 
-        brightnessobj.brightness = float(request.POST['brightness'])/100
+        brightnessobj.brightness = request.POST['brightness'])
         brightnessobj.save()
         brightness = brightnessobj.brightness 
 
-        u.brightness(brightness)
+        u.brightness(float(brightness)/100)
     
         for x in xrange(8):
 	    for y in xrange(8):
