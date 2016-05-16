@@ -16,6 +16,9 @@
     {% for color in color_list %}
         {{color.rgb_value}}
         <input type="radio" name="color" value="{{color.human_readable_name}}" onclick="this.form.submit()">{{color.human_readable_name}}<br>
+        {% if color.human_readable_name == last_color %}
+            <input type="radio" name="color" checked="checked" value="{{colo.human_readable_name}}" onclick="this.form.submit()">{{color.human_readable_name}}<br>
+        {% endif %}
     {% endfor %}
 
     Change Brightness
