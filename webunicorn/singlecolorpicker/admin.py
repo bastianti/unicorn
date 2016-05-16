@@ -4,3 +4,4 @@ from .models import RGBColor, Brightness
 
 admin.site.register(RGBColor)
 admin.site.register(Brightness)
+admin.site.register(LastColorValue)
