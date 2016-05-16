@@ -64,13 +64,15 @@ def changeRGB(request):
             red   = colorobj.red_value
             green = colorobj.green_value
             blue  = colorobj.blue_value
+            human_readable_name = colorobj.human_readable_name
             print "Red: {0}".format(colorobj.red_value)
             print "Green: {0}".format(colorobj.green_value)
             print "Blue: {0}".format(colorobj.blue_value)
             print "Brightness {0}".format(brightness)
-            lastcolorvalueobj.red_value = red
-            lastcolorvalueobj.green_value = green
-            lastcolorvalueobj.blue_value = blue
+            lastcolorvalueobj.red_value           = red
+            lastcolorvalueobj.green_value         = green
+            lastcolorvalueobj.blue_value          = blue
+            lastcolorvalueobj.human_readable_name = human_readable_name
 
             lastcolorvalueobj.save()
         except:
@@ -85,20 +87,21 @@ def changeRGB(request):
         for x in xrange(8):
 	    for y in xrange(8):
                u.set_pixel(x, y, red, green, blue)
+               print "Setting pixel {0} {1} {2} {3} {4}, brightness: {5}".format(x, y, red, green, blue, float(brightness)/100)
 	u.show()
     except(KeyError):
         template = loader.get_template('singlecolorpicker/changeRGB.html')
         context = {
             'color_list':color_list.order_by('human_readable_name'),
+            'last_color':lastcolorvalueobj.human_readable_name,
             'brightness':brightness
         }
         return HttpResponse(template.render(context, request))
     template = loader.get_template('singlecolorpicker/changeRGB.html')
     context = {
         'color_list':color_list.order_by('human_readable_name'),
+        'last_color':lastcolorvalueobj.human_readable_name,
         'brightness':brightness
     }
     return HttpResponse(template.render(context, request))
  
-
-
