@@ -14,3 +14,9 @@ class Brightness(models.Model):
     brightness          = models.SmallIntegerField(default=50)
     def __int__(self):
         return self.brightness
+
+
+class LastColorValue(models.Model):
+    red_value           = models.SmallIntegerField(default=0)
+    green_value         = models.SmallIntegerField(default=0)
+    blue_value          = models.SmallIntegerField(default=0)
