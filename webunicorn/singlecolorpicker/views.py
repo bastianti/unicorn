@@ -56,7 +56,7 @@ def changeRGB(request):
     lastcolorvalueobj = LastColorValue.objects.filter(pk=1)[0]
     red   = lastcolorvalueobj.red_value 
     green = lastcolorvalueobj.green_value 
-    red   = lastcolorvalueobj.blue_value 
+    blue  = lastcolorvalueobj.blue_value 
 
     try:
         try:
@@ -64,11 +64,15 @@ def changeRGB(request):
             red   = colorobj.red_value
             green = colorobj.green_value
             blue  = colorobj.blue_value
-            colorobj.save()
             print "Red: {0}".format(colorobj.red_value)
             print "Green: {0}".format(colorobj.green_value)
             print "Blue: {0}".format(colorobj.blue_value)
             print "Brightness {0}".format(brightness)
+            lastcolorvalueobj.red_value = red
+            lastcolorvalueobj.green_value = green
+            lastcolorvalueobj.blue_value = blue
+
+            lastcolorvalueobj.save()
         except:
             pass # This may happen
 
